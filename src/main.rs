@@ -16,14 +16,14 @@
 ********************************************************/
 
 /**
- * $ cargo run 
- * 
+ * $ cargo run
+ *
  **/
 fn main() {
-    let f = 0b1001_1101;
-    let a = 0b1000_0110;
+    let f = 0b10001_1011;
+    let a = 0b1000_0110; // 0x86 = 134
     let mut u = 0b1000_0110;
-    let mut v = 0b1000_1101;
+    let mut v = 0b10001_1011;
     let mut g1 = 0b0000_0001;
     let mut g2 = 0b0000_0000;
 
@@ -47,7 +47,10 @@ fn main() {
 
         if u == 1 {
             println!("################################");
-            println!("l' inverso di {:b} è {:b} = {:#02X}", a, g1, g1);
+            println!(
+                "l' inverso di {:b} = {:#02X} = {} è {:b} = {:#02X} = {}",
+                a, a, a, g1, g1, g1
+            );
             return;
         }
 
@@ -64,6 +67,6 @@ fn main() {
 
         // Sommo in GF(2^8) u con v e g1 con g2
         u ^= v;
-        g1 ^= g2
+        g1 ^= g2;
     }
 }
