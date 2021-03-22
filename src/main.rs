@@ -55,7 +55,10 @@ fn main() {
         }
 
         // XOR inversion, cioè scambio u con v e g1 con g2 se v ha grado maggiore di u
-        if v > u {
+        // cioè se in binario v è più lungo
+        // ----> if v > u <--- old, sbagliato
+
+        if format!("{:b}", v).len() > format!("{:b}", u).len() {
             u ^= v;
             v ^= u;
             u ^= v;
